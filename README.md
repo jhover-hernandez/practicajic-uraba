@@ -67,10 +67,5 @@ psql -U postgres -d practicajic -f database/schema.sql
 
 No subas contraseñas, archivos `.env` ni la carpeta `node_modules`; el `.gitignore` ya los excluye.
 
-## Equipo
-
-| Integrante | Rol |
-| --- | --- |
-| [Nombre] | [Rol] |
 
 Docente líder de práctica (APIT): Alexis Enrique Cantillo Viera.
