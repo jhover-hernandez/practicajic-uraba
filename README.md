@@ -121,10 +121,5 @@ Pruebas del backend: `cd backend && mvn test` (usan H2 en memoria, no necesitan 
 
 No subas contraseñas, archivos `.env` ni la carpeta `node_modules`; el `.gitignore` ya los excluye.
 
-## Equipo
-
-| Integrante | Rol |
-| --- | --- |
-| [Nombre] | [Rol] |
 
 Docente líder de práctica (APIT): Alexis Enrique Cantillo Viera.
