@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototipo PRACTICAJIC URABÁ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F6F3;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+a{color:#0F6B43}a:hover{color:#0A4D30}
+.barra-proto{position:sticky;top:0;z-index:10;background:#0A4D30;color:#FFFFFF;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px}
+.barra-proto strong{font-size:14px;margin-right:8px}
+.tab{font:inherit;font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.35);background:transparent;color:#FFFFFF;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:40px}
+.tab[aria-pressed="true"]{background:#FFFFFF;color:#0A4D30;border-color:#FFFFFF}
+.tab:focus-visible{outline:3px solid #FFD27A;outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="barra-proto" aria-label="Pantallas del prototipo">
+<strong>Prototipo · Ver pantalla:</strong>
+<button type="button" class="tab" data-p="inicio" aria-pressed="true">Inicio e ingreso</button>
+<button type="button" class="tab" data-p="estudiante" aria-pressed="false">Estudiante</button>
+<button type="button" class="tab" data-p="empresa" aria-pressed="false">Empresa</button>
+<button type="button" class="tab" data-p="comite" aria-pressed="false">Comité evaluador</button>
+<button type="button" class="tab" data-p="admin" aria-pressed="false">Administrador</button>
+</nav>
+<section class="pantalla" id="p-inicio" aria-label="Inicio e ingreso">
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #17201B; background: #F5F6F3; min-height: 100vh">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DDE2DC">
+<div style="max-width: 1240px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 40px; height: 40px; border-radius: 10px; background: #0F6B43; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px">PJ</div>
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 800; font-size: 17px; letter-spacing: 0.02em">PRACTICAJIC URABÁ</span>
+<span style="font-size: 12px; color: #56615A">Politécnico Colombiano Jaime Isaza Cadavid</span>
+</div>
+</div>
+<nav aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px; font-weight: 500">
+<a href="#convocatorias" style="text-decoration: none; color: #17201B">Convocatorias</a>
+<a href="#como-funciona" style="text-decoration: none; color: #17201B">Cómo funciona</a>
+<a href="#empresas" style="text-decoration: none; color: #17201B">Para empresas</a>
+<a href="#ingresar" style="text-decoration: none; background: #0F6B43; color: #FFFFFF; padding: 11px 20px; border-radius: 10px; font-weight: 600">Ingresar</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="align-self: flex-start; background: #E6F2EC; color: #0A4D30; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px">Regional Urabá · Piloto 2026</span>
+<h1 style="margin: 0; font-size: 52px; line-height: 1.08; font-weight: 800; letter-spacing: -0.02em">Las prácticas profesionales de Urabá, en un solo lugar</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3F4A43; max-width: 560px">Las empresas publican sus necesidades, los estudiantes del Politécnico se postulan con su perfil digital y el comité valida cada oferta antes de que llegue a ti.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#ingresar" style="text-decoration: none; background: #0F6B43; color: #FFFFFF; padding: 15px 24px; border-radius: 12px; font-weight: 700; font-size: 16px">Soy estudiante</a>
+<a href="#empresas" style="text-decoration: none; background: #FFFFFF; color: #0F6B43; border: 1.5px solid #0F6B43; padding: 14px 24px; border-radius: 12px; font-weight: 700; font-size: 16px">Soy empresa</a>
+</div>
+</div>
+
+<form id="ingresar" aria-labelledby="login-title" style="flex: 0 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box">
+<h2 id="login-title" style="margin: 0; font-size: 22px; font-weight: 700">Ingresar a la plataforma</h2>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="correo" style="font-size: 14px; font-weight: 600">Correo electrónico</label>
+<input id="correo" type="email" placeholder="nombre@elpoli.edu.co" style="font: inherit; font-size: 15px; padding: 12px 14px; border: 1px solid #C9D1CA; border-radius: 10px; background: #FFFFFF; color: #17201B">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="clave" style="font-size: 14px; font-weight: 600">Contraseña</label>
+<input id="clave" type="password" placeholder="••••••••" style="font: inherit; font-size: 15px; padding: 12px 14px; border: 1px solid #C9D1CA; border-radius: 10px; background: #FFFFFF; color: #17201B">
+</div>
+<a href="#recuperar" style="font-size: 14px; align-self: flex-end">¿Olvidaste tu contraseña?</a>
+<button type="button" style="font: inherit; font-size: 16px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 14px; cursor: pointer">Ingresar</button>
+<p style="margin: 0; font-size: 14px; color: #56615A; text-align: center">¿No tienes cuenta? <a href="#registro">Crear cuenta de estudiante o empresa</a></p>
+</form>
+</section>
+
+<section id="como-funciona" style="background: #FFFFFF; border-top: 1px solid #DDE2DC; border-bottom: 1px solid #DDE2DC">
+<div style="max-width: 1240px; margin: 0 auto; padding: 56px 24px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-size: 30px; font-weight: 800">Cómo funciona</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1px solid #DDE2DC; border-radius: 14px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #E6F2EC; color: #0A4D30; font-weight: 800; display: flex; align-items: center; justify-content: center">1</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">Regístrate</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A43">Crea tu cuenta y el Politécnico valida tus datos.</p>
+</li>
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1px solid #DDE2DC; border-radius: 14px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #E6F2EC; color: #0A4D30; font-weight: 800; display: flex; align-items: center; justify-content: center">2</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">Publica o postúlate</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A43">La empresa publica su necesidad; el estudiante arma su perfil digital.</p>
+</li>
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1px solid #DDE2DC; border-radius: 14px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #E6F2EC; color: #0A4D30; font-weight: 800; display: flex; align-items: center; justify-content: center">3</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">El comité evalúa</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A43">Ofertas y candidatos se califican con matrices de 100 puntos.</p>
+</li>
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1px solid #DDE2DC; border-radius: 14px">
+<span style="width: 36px; height: 36px; border-radius: 999px; background: #0F6B43; color: #FFFFFF; font-weight: 800; display: flex; align-items: center; justify-content: center">4</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">Inicia tu práctica</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A43">Se formaliza la vinculación y el Politécnico hace el seguimiento.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<section id="empresas" style="max-width: 1240px; margin: 0 auto; padding: 56px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 30px; font-weight: 800">¿Tu empresa necesita apoyo tecnológico?</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3F4A43">Publica tu necesidad en software, páginas web, bases de datos o soporte, y recibe estudiantes con las competencias que buscas.</p>
+</div>
+<a href="#registro" style="text-decoration: none; background: #17201B; color: #FFFFFF; padding: 15px 24px; border-radius: 12px; font-weight: 700; font-size: 16px">Registrar mi empresa</a>
+</section>
+</main>
+
+<footer style="border-top: 1px solid #DDE2DC; background: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #56615A">
+<span>Politécnico Colombiano Jaime Isaza Cadavid · Centro Regional Urabá, Apartadó</span>
+<a href="#datos">Política de tratamiento de datos (Ley 1581 de 2012)</a>
+</div>
+</footer>
+</div>
+</section>
+<section class="pantalla" id="p-estudiante" aria-label="Estudiante" hidden>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #17201B; background: #F5F6F3; min-height: 100vh">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DDE2DC">
+<div style="padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 36px; height: 36px; border-radius: 9px; background: #0F6B43; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">PJ</div>
+<span style="font-weight: 800; font-size: 16px; letter-spacing: 0.02em">PRACTICAJIC URABÁ</span>
+<span style="background: #E6F2EC; color: #0A4D30; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Estudiante</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<button type="button" aria-label="Notificaciones" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #DDE2DC; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#17201B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+</button>
+<div style="width: 40px; height: 40px; border-radius: 999px; background: #17201B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">[IN]</div>
+</div>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+<nav aria-label="Menú del estudiante" style="flex: 1 1 220px; max-width: 260px; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px">
+<a href="#inicio" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Inicio</a>
+<a href="#convocatorias" aria-current="page" style="text-decoration: none; color: #0A4D30; background: #E6F2EC; padding: 12px 14px; border-radius: 10px; font-weight: 700; font-size: 15px">Convocatorias</a>
+<a href="#postulaciones" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Mis postulaciones</a>
+<a href="#perfil" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Mi perfil digital</a>
+<a href="#practica" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Mi práctica</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 800">Convocatorias abiertas</h1>
+<p style="margin: 0; font-size: 15px; color: #56615A">Solo ves ofertas aprobadas por el comité evaluador.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px">
+<span style="background: #E6F2EC; color: #0A4D30; padding: 6px 12px; border-radius: 999px; font-weight: 600">✓ Hoja de vida cargada</span>
+<span style="background: #E6F2EC; color: #0A4D30; padding: 6px 12px; border-radius: 999px; font-weight: 600">✓ Competencias registradas</span>
+<span style="background: #FFF4E0; color: #7A4700; padding: 6px 12px; border-radius: 999px; font-weight: 600">Portafolio pendiente</span>
+</div>
+</div>
+
+<form role="search" style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="buscar" style="font-size: 13px; font-weight: 600">Buscar</label>
+<input id="buscar" type="search" placeholder="Cargo, empresa o competencia" style="font: inherit; font-size: 15px; padding: 11px 12px; border: 1px solid #C9D1CA; border-radius: 10px">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="area" style="font-size: 13px; font-weight: 600">Área</label>
+<select id="area" style="font: inherit; font-size: 15px; padding: 11px 12px; border: 1px solid #C9D1CA; border-radius: 10px; background: #FFFFFF"><option>Todas</option><option>Desarrollo de software</option><option>Páginas web</option><option>Bases de datos</option><option>Soporte tecnológico</option></select>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="municipio" style="font-size: 13px; font-weight: 600">Municipio</label>
+<select id="municipio" style="font: inherit; font-size: 15px; padding: 11px 12px; border: 1px solid #C9D1CA; border-radius: 10px; background: #FFFFFF"><option>Todos</option><option>Apartadó</option><option>Turbo</option><option>Carepa</option><option>Chigorodó</option></select>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="modalidad" style="font-size: 13px; font-weight: 600">Modalidad</label>
+<select id="modalidad" style="font: inherit; font-size: 15px; padding: 11px 12px; border: 1px solid #C9D1CA; border-radius: 10px; background: #FFFFFF"><option>Todas</option><option>Presencial</option><option>Remota</option><option>Híbrida</option></select>
+</div>
+</form>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<article style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">Desarrollador web junior</h2>
+<span style="font-size: 14px; color: #56615A">[Empresa ejemplo] · Apartadó</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; color: #3F4A43">
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">Presencial</span>
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">6 meses</span>
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">Con incentivo</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700; color: #0A4D30">3 de 4 competencias coinciden</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px">
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-weight: 600">React</span>
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-weight: 600">JavaScript</span>
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-weight: 600">Git</span>
+<span style="background: #F0F1EE; color: #56615A; padding: 4px 10px; border-radius: 999px">WordPress</span>
+</div>
+</div>
+<div style="display: flex; gap: 8px; margin-top: auto">
+<button type="button" style="flex: 1; font: inherit; font-size: 15px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 12px; cursor: pointer">Postularme</button>
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 12px 16px; cursor: pointer">Ver detalle</button>
+</div>
+</article>
+
+<article style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">Auxiliar de bases de datos</h2>
+<span style="font-size: 14px; color: #56615A">[Empresa ejemplo] · Turbo</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; color: #3F4A43">
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">Híbrida</span>
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">4 meses</span>
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">Con incentivo</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700; color: #0A4D30">2 de 3 competencias coinciden</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px">
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-weight: 600">PostgreSQL</span>
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-weight: 600">SQL</span>
+<span style="background: #F0F1EE; color: #56615A; padding: 4px 10px; border-radius: 999px">Power BI</span>
+</div>
+</div>
+<div style="display: flex; gap: 8px; margin-top: auto">
+<button type="button" style="flex: 1; font: inherit; font-size: 15px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 12px; cursor: pointer">Postularme</button>
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 12px 16px; cursor: pointer">Ver detalle</button>
+</div>
+</article>
+
+<article style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">Soporte técnico y redes</h2>
+<span style="font-size: 14px; color: #56615A">[Empresa ejemplo] · Carepa</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; color: #3F4A43">
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">Presencial</span>
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">6 meses</span>
+<span style="border: 1px solid #DDE2DC; padding: 4px 10px; border-radius: 8px">Sin incentivo</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700; color: #56615A">1 de 3 competencias coinciden</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px">
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-weight: 600">Linux</span>
+<span style="background: #F0F1EE; color: #56615A; padding: 4px 10px; border-radius: 999px">Redes</span>
+<span style="background: #F0F1EE; color: #56615A; padding: 4px 10px; border-radius: 999px">Mesa de ayuda</span>
+</div>
+</div>
+<div style="display: flex; gap: 8px; margin-top: auto">
+<button type="button" style="flex: 1; font: inherit; font-size: 15px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 12px; cursor: pointer">Postularme</button>
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 12px 16px; cursor: pointer">Ver detalle</button>
+</div>
+</article>
+</div>
+
+<section id="postulaciones" style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 700">Mis postulaciones</h2>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px">
+<thead>
+<tr style="text-align: left; color: #56615A; font-size: 13px">
+<th style="padding: 10px 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Oferta</th>
+<th style="padding: 10px 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Empresa</th>
+<th style="padding: 10px 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Fecha</th>
+<th style="padding: 10px 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; font-weight: 600">Desarrollador backend</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">[Empresa ejemplo]</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">[dd/mm/aaaa]</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC"><span style="background: #E8EEFB; color: #1E3F8A; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">Entrevista</span></td>
+</tr>
+<tr>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; font-weight: 600">Diseño de páginas web</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">[Empresa ejemplo]</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">[dd/mm/aaaa]</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC"><span style="background: #FFF4E0; color: #7A4700; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">En revisión</span></td>
+</tr>
+<tr>
+<td style="padding: 14px 12px; font-weight: 600">Analista de soporte</td>
+<td style="padding: 14px 12px; color: #3F4A43">[Empresa ejemplo]</td>
+<td style="padding: 14px 12px; color: #3F4A43">[dd/mm/aaaa]</td>
+<td style="padding: 14px 12px"><span style="background: #F0F1EE; color: #3F4A43; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">Postulado</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+</div>
+</section>
+<section class="pantalla" id="p-empresa" aria-label="Empresa" hidden>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #17201B; background: #F5F6F3; min-height: 100vh">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DDE2DC">
+<div style="padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 36px; height: 36px; border-radius: 9px; background: #0F6B43; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">PJ</div>
+<span style="font-weight: 800; font-size: 16px; letter-spacing: 0.02em">PRACTICAJIC URABÁ</span>
+<span style="background: #E8EEFB; color: #1E3F8A; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Empresa</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="font-size: 14px; color: #3F4A43; font-weight: 600">[Razón social]</span>
+<div style="width: 40px; height: 40px; border-radius: 999px; background: #17201B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">[E]</div>
+</div>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+<nav aria-label="Menú de la empresa" style="flex: 1 1 220px; max-width: 260px; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px">
+<a href="#inicio" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Inicio</a>
+<a href="#ofertas" aria-current="page" style="text-decoration: none; color: #0A4D30; background: #E6F2EC; padding: 12px 14px; border-radius: 10px; font-weight: 700; font-size: 15px">Mis ofertas</a>
+<a href="#postulantes" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Postulantes</a>
+<a href="#practicas" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Prácticas activas</a>
+<a href="#perfil" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Perfil de la empresa</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="background: #E6F2EC; border: 1px solid #B9DCC8; border-radius: 12px; padding: 14px 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 15px; color: #0A4D30">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A4D30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+<span style="font-weight: 700">Empresa validada por el Politécnico.</span>
+<span>Ya puedes publicar necesidades de práctica.</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 800">Mis ofertas</h1>
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 13px 20px; cursor: pointer">+ Publicar nueva oferta</button>
+</div>
+
+<section id="ofertas" style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 8px 20px 12px">
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 640px">
+<thead>
+<tr style="text-align: left; color: #56615A; font-size: 13px">
+<th style="padding: 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Oferta</th>
+<th style="padding: 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Área</th>
+<th style="padding: 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Vacantes</th>
+<th style="padding: 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Postulados</th>
+<th style="padding: 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background: #F7FBF8">
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; font-weight: 700">Desarrollador web junior</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">Desarrollo de software</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">2</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">[N]</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC"><span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">Aprobada · abierta</span></td>
+</tr>
+<tr>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; font-weight: 600">Apoyo en página web</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">Páginas web</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">1</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">—</td>
+<td style="padding: 14px 12px; border-bottom: 1px solid #EEF0EC"><span style="background: #FFF4E0; color: #7A4700; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">En revisión del comité</span></td>
+</tr>
+<tr>
+<td style="padding: 14px 12px; font-weight: 600">Soporte a usuarios</td>
+<td style="padding: 14px 12px; color: #3F4A43">Soporte tecnológico</td>
+<td style="padding: 14px 12px; color: #3F4A43">1</td>
+<td style="padding: 14px 12px; color: #3F4A43">—</td>
+<td style="padding: 14px 12px"><span style="background: #FDECEA; color: #9A1C12; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">Ajustes solicitados</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="postulantes" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 800">Postulantes · Desarrollador web junior</h2>
+<p style="margin: 0; font-size: 14px; color: #56615A">Ordenados por competencias coincidentes. Competencias pedidas: React, JavaScript, Git, WordPress.</p>
+</div>
+
+<article style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 18px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+<div style="width: 48px; height: 48px; border-radius: 999px; background: #E6F2EC; color: #0A4D30; font-weight: 800; display: flex; align-items: center; justify-content: center">[A]</div>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-weight: 700; font-size: 16px">[Nombre del estudiante]</span>
+<span style="font-size: 14px; color: #56615A">Tecnología en Desarrollo de Software · 6.º semestre</span>
+</div>
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 700; color: #0A4D30">4 de 4 coinciden</span>
+<div style="height: 8px; background: #EEF0EC; border-radius: 999px"><div style="width: 100%; height: 8px; background: #0F6B43; border-radius: 999px"></div></div>
+</div>
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">Preseleccionado</span>
+<div style="display: flex; gap: 8px">
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 11px 14px; cursor: pointer">Ver hoja de vida</button>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 11px 14px; cursor: pointer">Programar entrevista</button>
+</div>
+</article>
+
+<article style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 18px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+<div style="width: 48px; height: 48px; border-radius: 999px; background: #E6F2EC; color: #0A4D30; font-weight: 800; display: flex; align-items: center; justify-content: center">[B]</div>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-weight: 700; font-size: 16px">[Nombre del estudiante]</span>
+<span style="font-size: 14px; color: #56615A">Tecnología en Desarrollo de Software · 5.º semestre</span>
+</div>
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 700; color: #0A4D30">3 de 4 coinciden</span>
+<div style="height: 8px; background: #EEF0EC; border-radius: 999px"><div style="width: 75%; height: 8px; background: #0F6B43; border-radius: 999px"></div></div>
+</div>
+<span style="background: #FFF4E0; color: #7A4700; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">En revisión</span>
+<div style="display: flex; gap: 8px">
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 11px 14px; cursor: pointer">Ver hoja de vida</button>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 11px 14px; cursor: pointer">Preseleccionar</button>
+</div>
+</article>
+
+<article style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 18px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+<div style="width: 48px; height: 48px; border-radius: 999px; background: #E6F2EC; color: #0A4D30; font-weight: 800; display: flex; align-items: center; justify-content: center">[C]</div>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-weight: 700; font-size: 16px">[Nombre del estudiante]</span>
+<span style="font-size: 14px; color: #56615A">Tecnología en Desarrollo de Software · 6.º semestre</span>
+</div>
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 700; color: #56615A">2 de 4 coinciden</span>
+<div style="height: 8px; background: #EEF0EC; border-radius: 999px"><div style="width: 50%; height: 8px; background: #0F6B43; border-radius: 999px"></div></div>
+</div>
+<span style="background: #F0F1EE; color: #3F4A43; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700">Postulado</span>
+<div style="display: flex; gap: 8px">
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 11px 14px; cursor: pointer">Ver hoja de vida</button>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 11px 14px; cursor: pointer">Preseleccionar</button>
+</div>
+</article>
+</section>
+</main>
+</div>
+</div>
+</section>
+<section class="pantalla" id="p-comite" aria-label="Comité evaluador" hidden>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #17201B; background: #F5F6F3; min-height: 100vh">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DDE2DC">
+<div style="padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 36px; height: 36px; border-radius: 9px; background: #0F6B43; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">PJ</div>
+<span style="font-weight: 800; font-size: 16px; letter-spacing: 0.02em">PRACTICAJIC URABÁ</span>
+<span style="background: #FFF4E0; color: #7A4700; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Comité evaluador</span>
+</div>
+<div style="width: 40px; height: 40px; border-radius: 999px; background: #17201B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">[CE]</div>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+<nav aria-label="Menú del comité" style="flex: 1 1 220px; max-width: 260px; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px">
+<a href="#pendientes" aria-current="page" style="text-decoration: none; color: #0A4D30; background: #E6F2EC; padding: 12px 14px; border-radius: 10px; font-weight: 700; font-size: 15px">Ofertas pendientes</a>
+<a href="#candidatos" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Candidatos por calificar</a>
+<a href="#actas" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Actas de comité</a>
+<a href="#historial" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Historial</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<a href="#pendientes" style="font-size: 14px; font-weight: 600; text-decoration: none">← Volver a ofertas pendientes</a>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 800">Evaluar oferta: Apoyo en página web</h1>
+<p style="margin: 0; font-size: 15px; color: #56615A">[Empresa ejemplo] · Apartadó · Enviada el [dd/mm/aaaa]</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+<section aria-labelledby="det-title" style="flex: 1 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 id="det-title" style="margin: 0; font-size: 18px; font-weight: 700">Detalle de la oferta</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; font-size: 14px">
+<div><dt style="color: #56615A; font-weight: 600">Área</dt><dd style="margin: 4px 0 0">Páginas web</dd></div>
+<div><dt style="color: #56615A; font-weight: 600">Modalidad</dt><dd style="margin: 4px 0 0">Presencial</dd></div>
+<div><dt style="color: #56615A; font-weight: 600">Duración</dt><dd style="margin: 4px 0 0">6 meses</dd></div>
+<div><dt style="color: #56615A; font-weight: 600">Vacantes</dt><dd style="margin: 4px 0 0">1</dd></div>
+<div><dt style="color: #56615A; font-weight: 600">Vinculación</dt><dd style="margin: 4px 0 0">[Por definir con jurídica]</dd></div>
+<div><dt style="color: #56615A; font-weight: 600">Incentivo</dt><dd style="margin: 4px 0 0">[Valor]</dd></div>
+</dl>
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+<span style="color: #56615A; font-weight: 600">Actividades</span>
+<p style="margin: 0; line-height: 1.5">Actualizar el sitio web de la empresa, crear un catálogo de productos y dar soporte al contenido.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="color: #56615A; font-weight: 600">Competencias pedidas</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px">
+<span style="background: #F0F1EE; padding: 4px 10px; border-radius: 999px">HTML y CSS</span>
+<span style="background: #F0F1EE; padding: 4px 10px; border-radius: 999px">JavaScript</span>
+<span style="background: #F0F1EE; padding: 4px 10px; border-radius: 999px">Diseño responsive</span>
+</div>
+</div>
+</section>
+
+<form aria-labelledby="mat-title" style="flex: 2 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 id="mat-title" style="margin: 0; font-size: 18px; font-weight: 700">Matriz de evaluación de empresas</h2>
+<span style="font-size: 13px; color: #56615A">Califica cada criterio de 0 a su peso máximo</span>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px">
+<thead>
+<tr style="text-align: left; color: #56615A; font-size: 13px">
+<th style="padding: 10px 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600">Criterio</th>
+<th style="padding: 10px 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600; width: 90px">Peso</th>
+<th style="padding: 10px 12px; border-bottom: 1px solid #DDE2DC; font-weight: 600; width: 120px">Puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC"><label for="c1">Pertinencia de las actividades frente al programa</label></td>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">25</td>
+<td style="padding: 8px 12px; border-bottom: 1px solid #EEF0EC"><input id="c1" type="number" min="0" max="25" placeholder="0–25" style="font: inherit; width: 90px; padding: 9px 10px; border: 1px solid #C9D1CA; border-radius: 8px"></td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC"><label for="c2">Calidad del plan de práctica</label></td>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">20</td>
+<td style="padding: 8px 12px; border-bottom: 1px solid #EEF0EC"><input id="c2" type="number" min="0" max="20" placeholder="0–20" style="font: inherit; width: 90px; padding: 9px 10px; border: 1px solid #C9D1CA; border-radius: 8px"></td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC"><label for="c3">Condiciones ofrecidas al estudiante</label></td>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">20</td>
+<td style="padding: 8px 12px; border-bottom: 1px solid #EEF0EC"><input id="c3" type="number" min="0" max="20" placeholder="0–20" style="font: inherit; width: 90px; padding: 9px 10px; border: 1px solid #C9D1CA; border-radius: 8px"></td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC"><label for="c4">Incentivo económico</label></td>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">15</td>
+<td style="padding: 8px 12px; border-bottom: 1px solid #EEF0EC"><input id="c4" type="number" min="0" max="15" placeholder="0–15" style="font: inherit; width: 90px; padding: 9px 10px; border: 1px solid #C9D1CA; border-radius: 8px"></td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC"><label for="c5">Capacidad de acompañamiento</label></td>
+<td style="padding: 12px; border-bottom: 1px solid #EEF0EC; color: #3F4A43">10</td>
+<td style="padding: 8px 12px; border-bottom: 1px solid #EEF0EC"><input id="c5" type="number" min="0" max="10" placeholder="0–10" style="font: inherit; width: 90px; padding: 9px 10px; border: 1px solid #C9D1CA; border-radius: 8px"></td>
+</tr>
+<tr>
+<td style="padding: 12px; border-bottom: 1px solid #DDE2DC"><label for="c6">Posibilidad de generación de experiencia laboral</label></td>
+<td style="padding: 12px; border-bottom: 1px solid #DDE2DC; color: #3F4A43">10</td>
+<td style="padding: 8px 12px; border-bottom: 1px solid #DDE2DC"><input id="c6" type="number" min="0" max="10" placeholder="0–10" style="font: inherit; width: 90px; padding: 9px 10px; border: 1px solid #C9D1CA; border-radius: 8px"></td>
+</tr>
+<tr style="font-weight: 800">
+<td style="padding: 14px 12px">Total</td>
+<td style="padding: 14px 12px">100</td>
+<td style="padding: 14px 12px; color: #0A4D30">[pts] / 100</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<fieldset style="border: 1px solid #DDE2DC; border-radius: 12px; padding: 14px 16px; margin: 0; display: flex; flex-wrap: wrap; gap: 10px 24px">
+<legend style="font-size: 14px; font-weight: 700; padding: 0 6px">Decisión</legend>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 15px; min-height: 44px"><input type="radio" name="decision" checked> Aprobar y publicar</label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 15px; min-height: 44px"><input type="radio" name="decision"> Solicitar ajustes</label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 15px; min-height: 44px"><input type="radio" name="decision"> Rechazar</label>
+</fieldset>
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="obs" style="font-size: 14px; font-weight: 700">Observaciones para la empresa</label>
+<textarea id="obs" rows="3" placeholder="Explica qué debe ajustar o por qué se aprueba" style="font: inherit; font-size: 15px; padding: 12px; border: 1px solid #C9D1CA; border-radius: 10px; resize: vertical"></textarea>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px">
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 12px 18px; cursor: pointer">Guardar borrador</button>
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 12px 18px; cursor: pointer">Registrar evaluación</button>
+</div>
+</form>
+</div>
+</main>
+</div>
+</div>
+</section>
+<section class="pantalla" id="p-admin" aria-label="Administrador" hidden>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #17201B; background: #F5F6F3; min-height: 100vh">
+
+<header style="background: #17201B; color: #FFFFFF">
+<div style="padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 36px; height: 36px; border-radius: 9px; background: #0F6B43; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">PJ</div>
+<span style="font-weight: 800; font-size: 16px; letter-spacing: 0.02em">PRACTICAJIC URABÁ</span>
+<span style="background: #2E3A33; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Administrador institucional</span>
+</div>
+<div style="width: 40px; height: 40px; border-radius: 999px; background: #FFFFFF; color: #17201B; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">[AD]</div>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+<nav aria-label="Menú del administrador" style="flex: 1 1 220px; max-width: 260px; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 4px">
+<a href="#panel" aria-current="page" style="text-decoration: none; color: #0A4D30; background: #E6F2EC; padding: 12px 14px; border-radius: 10px; font-weight: 700; font-size: 15px">Panel</a>
+<a href="#validaciones" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Validaciones</a>
+<a href="#usuarios" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Usuarios y roles</a>
+<a href="#convocatorias" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Convocatorias</a>
+<a href="#practicas" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Prácticas y seguimiento</a>
+<a href="#catalogos" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Áreas y competencias</a>
+<a href="#informes" style="text-decoration: none; color: #3F4A43; padding: 12px 14px; border-radius: 10px; font-weight: 500; font-size: 15px">Informes</a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 800">Panel de indicadores</h1>
+<p style="margin: 0; font-size: 15px; color: #56615A">Los valores se calculan con los datos reales del piloto.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="periodo" style="font-size: 13px; font-weight: 600">Periodo</label>
+<select id="periodo" style="font: inherit; font-size: 15px; padding: 11px 12px; border: 1px solid #C9D1CA; border-radius: 10px; background: #FFFFFF"><option>2026-2</option><option>2026-1</option></select>
+</div>
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 11px 16px; cursor: pointer">Exportar PDF</button>
+<button type="button" style="font: inherit; font-size: 15px; font-weight: 600; background: #FFFFFF; color: #17201B; border: 1px solid #C9D1CA; border-radius: 10px; padding: 11px 16px; cursor: pointer">Exportar Excel</button>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px">
+<div style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #56615A; font-weight: 600">Empresas validadas</span>
+<span style="font-size: 32px; font-weight: 800">[N]</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #56615A; font-weight: 600">Estudiantes validados</span>
+<span style="font-size: 32px; font-weight: 800">[N]</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #56615A; font-weight: 600">Convocatorias abiertas</span>
+<span style="font-size: 32px; font-weight: 800">[N]</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #56615A; font-weight: 600">Postulaciones</span>
+<span style="font-size: 32px; font-weight: 800">[N]</span>
+</div>
+<div style="background: #0F6B43; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; color: #FFFFFF">
+<span style="font-size: 13px; font-weight: 600">Tasa de colocación</span>
+<span style="font-size: 32px; font-weight: 800">[%]</span>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<section id="validaciones" style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">Pendientes de validación</h2>
+<a href="#validaciones" style="font-size: 14px; font-weight: 600">Ver todas</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF0EC">
+<span style="background: #E8EEFB; color: #1E3F8A; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700">Empresa</span>
+<div style="flex: 1 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 15px">[Razón social]</span><span style="font-size: 13px; color: #56615A">NIT [000000000-0] · Chigorodó</span></div>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 11px 14px; cursor: pointer">Validar</button>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 600; background: #FFFFFF; color: #9A1C12; border: 1px solid #E8B4AE; border-radius: 10px; padding: 11px 14px; cursor: pointer">Rechazar</button>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF0EC">
+<span style="background: #E6F2EC; color: #0A4D30; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700">Estudiante</span>
+<div style="flex: 1 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 15px">[Nombre del estudiante]</span><span style="font-size: 13px; color: #56615A">Desarrollo de Software · 6.º semestre</span></div>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 700; background: #0F6B43; color: #FFFFFF; border: none; border-radius: 10px; padding: 11px 14px; cursor: pointer">Validar</button>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 600; background: #FFFFFF; color: #9A1C12; border: 1px solid #E8B4AE; border-radius: 10px; padding: 11px 14px; cursor: pointer">Rechazar</button>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 0">
+<span style="background: #FFF4E0; color: #7A4700; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700">Oferta</span>
+<div style="flex: 1 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 15px">Apoyo en página web</span><span style="font-size: 13px; color: #56615A">Sin evaluador asignado</span></div>
+<button type="button" style="font: inherit; font-size: 14px; font-weight: 700; background: #17201B; color: #FFFFFF; border: none; border-radius: 10px; padding: 11px 14px; cursor: pointer">Asignar evaluador</button>
+</div>
+</section>
+
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">Empresas por municipio</h2>
+<table style="width: 100%; border-collapse: collapse; font-size: 15px">
+<thead><tr style="text-align: left; color: #56615A; font-size: 13px"><th style="padding: 8px 0; border-bottom: 1px solid #DDE2DC; font-weight: 600">Municipio</th><th style="padding: 8px 0; border-bottom: 1px solid #DDE2DC; font-weight: 600; text-align: right">Empresas</th></tr></thead>
+<tbody>
+<tr><td style="padding: 11px 0; border-bottom: 1px solid #EEF0EC">Apartadó</td><td style="padding: 11px 0; border-bottom: 1px solid #EEF0EC; text-align: right; font-weight: 700">[N]</td></tr>
+<tr><td style="padding: 11px 0; border-bottom: 1px solid #EEF0EC">Turbo</td><td style="padding: 11px 0; border-bottom: 1px solid #EEF0EC; text-align: right; font-weight: 700">[N]</td></tr>
+<tr><td style="padding: 11px 0; border-bottom: 1px solid #EEF0EC">Carepa</td><td style="padding: 11px 0; border-bottom: 1px solid #EEF0EC; text-align: right; font-weight: 700">[N]</td></tr>
+<tr><td style="padding: 11px 0">Chigorodó</td><td style="padding: 11px 0; text-align: right; font-weight: 700">[N]</td></tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<section style="background: #FFFFFF; border: 1px solid #DDE2DC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">Áreas de mayor demanda</h2>
+<div style="height: 200px; border: 1.5px dashed #C9D1CA; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; color: #56615A; font-size: 15px">Gráfico de barras: ofertas por área (Desarrollo de software, Páginas web, Bases de datos, Soporte). Se llena con los datos del piloto.</div>
+</section>
+</main>
+</div>
+</div>
+</section>
+<script>
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.pantalla').forEach(function(s){s.hidden = s.id !== 'p-'+b.dataset.p;});
+    document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-pressed', t===b ? 'true':'false');});
+    window.scrollTo(0,0);
+  });
+});
+</script>
+</body>
+</html>
