@@ -1,13 +1,9 @@
-# Frontend · React + Vite + Tailwind
+# Frontend · React 18 + Vite + Tailwind
 
-Aquí va la aplicación web en React. Se crea con:
-
-```bash
+```powershell
 cd frontend
-npm create vite@latest . -- --template react
 npm install
-npm install -D tailwindcss @tailwindcss/vite
 npm run dev
 ```
 
-La guía visual de las pantallas está en [`../prototipo/index.html`](../prototipo/index.html).
+Se abre en http://localhost:5173 y consume la API del backend en el puerto 8080. Más detalles en el [README principal](../README.md#puesta-en-marcha-desarrollo).

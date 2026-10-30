@@ -1,0 +1,9 @@
+# Perfil de desarrollo local. NO usar estos valores en el piloto.
+app:
+  jwt:
+    secreto: ${APP_JWT_SECRETO:ZGV2LXByYWN0aWNhamljLXVyYWJhLWNsYXZlLXNvbG8tcGFyYS1kZXNhcnJvbGxvLTIwMjY=}
+  cookie-segura: false
+  correo:
+    habilitado: ${APP_CORREO_HABILITADO:true}   # Mailpit en http://localhost:8025
+  admin:
+    contrasena: ${APP_ADMIN_CONTRASENA:Admin12345}

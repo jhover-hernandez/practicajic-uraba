@@ -1,0 +1,23 @@
+# Servicios de apoyo para desarrollo local.
+#   PostgreSQL: localhost:5432 (practicajic / practicajic)
+#   Mailpit:    bandeja de correos de prueba en http://localhost:8025
+services:
+  postgres:
+    image: postgres:16.4
+    environment:
+      POSTGRES_DB: practicajic
+      POSTGRES_USER: practicajic
+      POSTGRES_PASSWORD: practicajic
+    ports:
+      - "5432:5432"
+    volumes:
+      - datos-postgres:/var/lib/postgresql/data
+
+  mailpit:
+    image: axllent/mailpit:v1.20.5
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  datos-postgres:

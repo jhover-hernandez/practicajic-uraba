@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: practicajic
+  profiles:
+    default: dev
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/practicajic}
+    username: ${DB_USUARIO:practicajic}
+    password: ${DB_CONTRASENA:practicajic}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USUARIO:}
+    password: ${MAIL_CONTRASENA:}
+
+server:
+  port: ${PORT:8080}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  frontend-url: ${APP_FRONTEND_URL:http://localhost:5173}
+  cors-origenes: ${APP_CORS_ORIGENES:http://localhost:5173}
+  jwt:
+    # Clave HMAC en Base64 de al menos 256 bits. En producción se define siempre por variable de entorno.
+    secreto: ${APP_JWT_SECRETO}
+    duracion-acceso: ${APP_JWT_DURACION_ACCESO:15m}
+    duracion-refresh: ${APP_JWT_DURACION_REFRESH:7d}
+  cookie-segura: ${APP_COOKIE_SEGURA:true}
+  recuperacion:
+    duracion: 30m
+  login:
+    max-intentos: 5
+    bloqueo: 15m
+  correo:
+    habilitado: ${APP_CORREO_HABILITADO:false}
+    remitente: ${APP_CORREO_REMITENTE:no-responder@practicajic.local}
+  admin:
+    # Administrador inicial: se crea al arrancar solo si no existe ningún ADMIN y hay contraseña definida.
+    correo: ${APP_ADMIN_CORREO:admin@practicajic.local}
+    contrasena: ${APP_ADMIN_CONTRASENA:}

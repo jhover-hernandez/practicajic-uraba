@@ -1,14 +1,10 @@
-# Backend · Java 17 + Spring Boot
+# Backend · Java 17 + Spring Boot 3
 
-Aquí va la API REST. Se genera en https://start.spring.io con:
+API REST de PRACTICAJIC URABÁ. Las instrucciones para ejecutarlo y las reglas para los demás módulos están en el [README principal](../README.md#puesta-en-marcha-desarrollo).
 
-- Project: Maven · Language: Java · Spring Boot 3.x · Java 17
-- Group: `co.edu.elpoli` · Artifact: `practicajic`
-- Dependencias: Spring Web, Spring Data JPA, Spring Security, PostgreSQL Driver, Validation, Lombok
-
-Descomprime el proyecto dentro de esta carpeta y ejecútalo con:
-
-```bash
+```powershell
 cd backend
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
+
+Swagger: http://localhost:8080/swagger-ui.html · Pruebas: `mvn test`
