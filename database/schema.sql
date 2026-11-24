@@ -1,11 +1,10 @@
--- PRACTICAJIC URABÁ · Esquema inicial PostgreSQL
--- Basado en el documento SRS (sección 6) y el diagrama entidad-relación.
+-- PRACTICAJIC URABÁ 
 -- Ejecutar con: psql -U postgres -d practicajic -f schema.sql
 
 CREATE TABLE usuario (
     id              BIGSERIAL PRIMARY KEY,
     correo          VARCHAR(150) NOT NULL UNIQUE,
-    contrasena_hash VARCHAR(100) NOT NULL,           -- BCrypt (RNF-01)
+    contrasena_hash VARCHAR(100) NOT NULL,           
     rol             VARCHAR(20)  NOT NULL CHECK (rol IN ('ADMIN','EMPRESA','ESTUDIANTE','COMITE')),
     activo          BOOLEAN      NOT NULL DEFAULT TRUE,
     fecha_creacion  TIMESTAMP    NOT NULL DEFAULT NOW()
@@ -28,7 +27,7 @@ CREATE TABLE estudiante (
 CREATE TABLE hoja_vida (
     id                   BIGSERIAL PRIMARY KEY,
     estudiante_id        BIGINT NOT NULL REFERENCES estudiante(id) ON DELETE CASCADE,
-    archivo              VARCHAR(255) NOT NULL,       -- nombre generado por el sistema (RNF-04)
+    archivo              VARCHAR(255) NOT NULL,       
     version              INTEGER      NOT NULL DEFAULT 1,
     fecha_actualizacion  TIMESTAMP    NOT NULL DEFAULT NOW(),
     activa               BOOLEAN      NOT NULL DEFAULT TRUE
@@ -37,7 +36,7 @@ CREATE TABLE hoja_vida (
 CREATE TABLE portafolio (
     id             BIGSERIAL PRIMARY KEY,
     estudiante_id  BIGINT NOT NULL REFERENCES estudiante(id) ON DELETE CASCADE,
-    tipo           VARCHAR(30)  NOT NULL,            -- proyecto, repositorio, certificación
+    tipo           VARCHAR(30)  NOT NULL,           
     titulo         VARCHAR(150) NOT NULL,
     url            VARCHAR(255),
     descripcion    TEXT
@@ -104,7 +103,7 @@ CREATE TABLE oferta_competencia (
     UNIQUE (oferta_id, competencia_id)
 );
 
--- Matriz de evaluación de empresas: 25 + 20 + 20 + 15 + 10 + 10 = 100
+
 CREATE TABLE evaluacion_oferta (
     id                     BIGSERIAL PRIMARY KEY,
     oferta_id              BIGINT NOT NULL REFERENCES oferta_practica(id) ON DELETE RESTRICT,
@@ -130,10 +129,9 @@ CREATE TABLE postulacion (
                               CHECK (estado IN ('POSTULADO','EN_REVISION','PRESELECCIONADO','ENTREVISTA',
                                                 'SELECCIONADO','NO_SELECCIONADO','PRACTICA_INICIADA','PRACTICA_FINALIZADA')),
     competencias_coincidentes SMALLINT NOT NULL DEFAULT 0,
-    UNIQUE (oferta_id, estudiante_id)                 -- RN-06: no postularse dos veces
+    UNIQUE (oferta_id, estudiante_id)                 
 );
 
--- Matriz de evaluación del estudiante: 30 + 25 + 15 + 15 + 10 + 5 = 100
 CREATE TABLE evaluacion (
     id                     BIGSERIAL PRIMARY KEY,
     postulacion_id         BIGINT NOT NULL REFERENCES postulacion(id) ON DELETE RESTRICT,
@@ -167,12 +165,12 @@ CREATE TABLE seguimiento (
     practica_id     BIGINT NOT NULL REFERENCES practica(id) ON DELETE CASCADE,
     responsable_id  BIGINT NOT NULL REFERENCES usuario(id) ON DELETE RESTRICT,
     fecha           DATE NOT NULL DEFAULT CURRENT_DATE,
-    tipo            VARCHAR(30) NOT NULL,             -- visita, informe, evaluación final
+    tipo            VARCHAR(30) NOT NULL,             
     descripcion     TEXT NOT NULL,
     calificacion    DECIMAL(3,1) CHECK (calificacion BETWEEN 0 AND 5)
 );
 
--- Índices para las búsquedas más frecuentes
+
 CREATE INDEX idx_oferta_estado     ON oferta_practica (estado);
 CREATE INDEX idx_oferta_area       ON oferta_practica (area_id);
 CREATE INDEX idx_oferta_municipio  ON oferta_practica (municipio);
@@ -180,7 +178,7 @@ CREATE INDEX idx_postulacion_est   ON postulacion (estudiante_id);
 CREATE INDEX idx_postulacion_estado ON postulacion (estado);
 CREATE INDEX idx_seguimiento_prac  ON seguimiento (practica_id);
 
--- Vista para el panel administrativo (RF-38)
+
 CREATE VIEW v_indicadores AS
 SELECT
   (SELECT COUNT(*) FROM empresa    WHERE estado_validacion = 'VALIDADA') AS empresas_validadas,
@@ -189,7 +187,7 @@ SELECT
   (SELECT COUNT(*) FROM postulacion)                                     AS postulaciones,
   (SELECT COUNT(*) FROM practica)                                        AS practicas;
 
--- Datos iniciales (catálogos)
+
 INSERT INTO area (nombre) VALUES
   ('Desarrollo de software'), ('Páginas web'), ('Bases de datos'), ('Soporte tecnológico');
 
