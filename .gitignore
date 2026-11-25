@@ -1,0 +1,18 @@
+# Backend
+backend/target/
+backend/datos/
+
+# Copias de seguridad del piloto
+respaldos/
+*.class
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Entorno e IDE
+.env
+.idea/
+.vscode/
+*.iml
+~$*

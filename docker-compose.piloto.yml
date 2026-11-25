@@ -1,0 +1,78 @@
+# Tarea 16 · Despliegue del piloto en el servidor del Politécnico (RNF-08, RNF-13).
+#   1. Copia .env.ejemplo a .env y cambia todas las claves.
+#   2. docker compose -f docker-compose.piloto.yml up -d --build
+#   3. La plataforma queda en http://<servidor> (puerto 80). Copias diarias en ./respaldos
+services:
+  postgres:
+    image: postgres:16.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: practicajic
+      POSTGRES_USER: practicajic
+      POSTGRES_PASSWORD: ${DB_CONTRASENA:?Define DB_CONTRASENA en .env}
+    volumes:
+      - piloto-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U practicajic -d practicajic"]
+      interval: 10s
+      retries: 10
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: piloto
+      DB_URL: jdbc:postgresql://postgres:5432/practicajic
+      DB_USUARIO: practicajic
+      DB_CONTRASENA: ${DB_CONTRASENA}
+      APP_JWT_SECRETO: ${APP_JWT_SECRETO:?Define APP_JWT_SECRETO en .env}
+      APP_ADMIN_CORREO: ${APP_ADMIN_CORREO}
+      APP_ADMIN_CONTRASENA: ${APP_ADMIN_CONTRASENA}
+      APP_FRONTEND_URL: ${APP_FRONTEND_URL}
+      APP_CORS_ORIGENES: ${APP_FRONTEND_URL}
+      APP_COOKIE_SEGURA: ${APP_COOKIE_SEGURA:-true}
+      APP_PUNTAJE_MINIMO: ${APP_PUNTAJE_MINIMO:-70}
+      APP_CORREO_HABILITADO: ${APP_CORREO_HABILITADO:-false}
+      APP_CORREO_REMITENTE: ${APP_CORREO_REMITENTE:-no-responder@practicajic.local}
+      MAIL_HOST: ${MAIL_HOST:-localhost}
+      MAIL_PORT: ${MAIL_PORT:-587}
+      MAIL_USUARIO: ${MAIL_USUARIO:-}
+      MAIL_CONTRASENA: ${MAIL_CONTRASENA:-}
+    volumes:
+      - piloto-archivos:/datos/archivos
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "${PUERTO_WEB:-80}:80"
+
+  # RNF-08: copia de seguridad diaria de la base de datos; se conservan los últimos 14 días.
+  respaldo:
+    image: postgres:16.4
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: ${DB_CONTRASENA}
+    volumes:
+      - ./respaldos:/respaldos
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        while true; do
+          archivo=/respaldos/practicajic-$$(date +%Y%m%d-%H%M).sql.gz
+          pg_dump -h postgres -U practicajic practicajic | gzip > "$$archivo" && echo "Respaldo creado: $$archivo"
+          find /respaldos -name 'practicajic-*.sql.gz' -mtime +14 -delete
+          sleep 86400
+        done
+
+volumes:
+  piloto-postgres:
+  piloto-archivos:

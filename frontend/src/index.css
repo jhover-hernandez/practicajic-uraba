@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Verde institucional: acción principal y elementos aprobados (convenciones del prototipo). */
+@theme {
+  --color-marca-50: #ecf8f0;
+  --color-marca-100: #d2eedc;
+  --color-marca-500: #1f9a52;
+  --color-marca-600: #157f42;
+  --color-marca-700: #0f6634;
+  --color-marca-800: #0c4f29;
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+}
